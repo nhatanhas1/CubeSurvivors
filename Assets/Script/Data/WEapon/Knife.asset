@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77bb6ae8391f4544694c6ab408e423c1, type: 3}
+  m_Name: Knife
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  weaponName: Knife
+  sprite: {fileID: 21300104, guid: 49bc61d8c959ecc45a6ee9887a54a0ed, type: 3}
+  weaponMaxLv: 7
+  attackDamage: 10
+  baseAttackSpeed: 1
+  weaponUpgradeInformation:
+  - Base damage up by 5. Fires 1 more projectile.
+  - Base damage up by 5. Fires 1 more projectile.
+  - Base damage up by 7. Fires 1 more projectile.
+  - Base damage up by 7. Fires 1 more projectile.
+  - Base damage up by 9. Fires 1 more projectile.
+  - 'Base damage up by 9. '
+  - 'Base damage up by 15. '

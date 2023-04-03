@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77bb6ae8391f4544694c6ab408e423c1, type: 3}
+  m_Name: Axe
+  m_EditorClassIdentifier: 
+  weaponType: 2
+  weaponName: Axe
+  sprite: {fileID: 1539730898, guid: c57cae144c7db2745b3185414c243e08, type: 3}
+  weaponMaxLv: 7
+  attackDamage: 30
+  baseAttackSpeed: 2
+  weaponUpgradeInformation:
+  - Base damage up by 10. Fires 1 more projectile.
+  - Base damage up by 10
+  - Base damage up by 15. Fires 1 more projectile.
+  - Base damage up by 15. Fires 1 more projectile.
+  - Base damage up by 20
+  - Base damage up by 20. Fires 1 more projectile.
+  - Base damage up by 40

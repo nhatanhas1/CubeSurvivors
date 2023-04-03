@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7009cf0b9eb434ba011a38f8b3d75c, type: 3}
+  m_Name: Barrel
+  m_EditorClassIdentifier: 
+  id: 0
+  nameEnemy: 
+  sprite: {fileID: -1243413475, guid: a1e16f3ad36b2ff4085693a692b2810f, type: 3}
+  hitPoint: 250
+  attackDamage: 25
+  armor: 10
+  attackSpeed: 2
+  moveSpeed: 4
+  enemyType: 0
+  runtimeAnimatorController: {fileID: 9100000, guid: a0008026a9d7f164988e14657790fb19,
+    type: 2}

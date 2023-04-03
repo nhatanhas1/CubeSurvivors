@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77bb6ae8391f4544694c6ab408e423c1, type: 3}
+  m_Name: Armor
+  m_EditorClassIdentifier: 
+  weaponType: 8
+  weaponName: Armor
+  sprite: {fileID: 21300000, guid: 567fdd2e557fefc478f8aaa7ae56fb11, type: 3}
+  weaponLv: 0
+  weaponUpgradeInformation:
+  - Armor +3
+  - Armor +3
+  - Armor +5
+  - Armor +5
+  - Armor +7
+  - Armor +7
+  - Armor +10
+  attackDamage: 0
