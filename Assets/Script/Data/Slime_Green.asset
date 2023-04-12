@@ -16,7 +16,7 @@ MonoBehaviour:
   nameEnemy: 
   sprite: {fileID: -230078801, guid: 87e8c549417515f4499167f318296c57, type: 3}
   hitPoint: 100
-  attackDamage: 8
+  attackDamage: 5
   armor: 2
   attackSpeed: 2
   moveSpeed: 3

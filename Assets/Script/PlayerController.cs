@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour, IIDamageable
     int finalDamageTake;
 
     public float moveSpeed;
-    public float attackSpeed;
 
-    public float attackTime;
+    public float attackSpeed;
+    //public float attackTime;
 
     [SerializeField] List<GameObject> activeWeaponList;
     [SerializeField] List<GameObject> AllWeaponList;
@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour, IIDamageable
     IWeaponActive IWeapon_Active;
 
     Vector3 moveDir;
+    bool onMove;
     public Vector3 faceDir;
 
     //[SerializeField] Transform objectSpawnPosition;
@@ -93,7 +94,7 @@ public class PlayerController : MonoBehaviour, IIDamageable
         armor = 3;
         faceDir = Vector3.back;
         currentHitPoint = hitPoint;
-        attackTime = 2;
+        //attackTime = 2;
         SetUpWeapon();
         uiManager.SetUpPlayerUI(hitPoint, currentHitPoint, expToLevelUp, playerExp, playerLevel);
     }
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour, IIDamageable
     void Update()
     {
         MoveAnimation();
-
+        CheckMoveInput();
         //Attack();
 
         //Debug.Log(moveDir);
@@ -118,20 +119,48 @@ public class PlayerController : MonoBehaviour, IIDamageable
         uiManager.GetPlayerStatusUi(pickupRadius,stoneLv,axeLv,crossLv,fireAuraLv);
     }
 
-    void Movement()
+    void CheckMoveInput()
     {
+        //Debug.Log("Check move");
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
             moveDir.x = Input.GetAxisRaw("Horizontal");
             moveDir.z = Input.GetAxisRaw("Vertical");
 
-            rb.velocity = moveDir * moveSpeed;
+            onMove = true;
         }
         else
         {
             moveDir = Vector3.zero;
-            rb.velocity = moveDir;
+            onMove = false;
         }
+    }
+
+    void Movement()
+    {
+        //Debug.Log("move");
+        if (onMove)
+        {
+            rb.velocity = moveDir.normalized * moveSpeed;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
+
+        //if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        //{
+        //    moveDir.x = Input.GetAxisRaw("Horizontal");
+        //    moveDir.z = Input.GetAxisRaw("Vertical");
+
+        //    rb.velocity = moveDir * moveSpeed;
+        //}
+        //else
+        //{
+        //    moveDir = Vector3.zero;
+        //    rb.velocity = moveDir;
+        //}
+        
     }
 
     void MoveAnimation()
@@ -174,8 +203,7 @@ public class PlayerController : MonoBehaviour, IIDamageable
             for(int i = 0; i < AllWeaponList.Count; i++)
             {
                 IWeapon = AllWeaponList[i].GetComponent<IWeapon>();
-                IWeapon.SetWeaponHandler(this);
-                
+                IWeapon.SetWeaponHandler(this);                 
             }
         }
     }

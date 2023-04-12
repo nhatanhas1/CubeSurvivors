@@ -15,6 +15,8 @@ public class GameHandler : MonoBehaviour
     [SerializeField] LevelController levelController;
     PlayerController playerController;
 
+    public UnityEvent SpawnBreakableObjectListener;
+
     //[SerializeField] UnityEvent PauseGameListener;
     public UnityEvent PauseGameListener;
 
@@ -107,7 +109,10 @@ public class GameHandler : MonoBehaviour
     }
 
     
-
+    public void SpawnBreakableObject()
+    {
+        SpawnBreakableObjectListener?.Invoke();
+    }
 }
 
 

@@ -75,7 +75,7 @@ public class EnemyController : MonoBehaviour , IIDamageable , IPooledObject
 
     private void OnEnable()
     {
-               
+        attackTime = 0;       
         if (enemyData != null)
         {
             GetComponentInChildren<SpriteRenderer>().sprite = enemyData.sprite;
@@ -119,7 +119,7 @@ public class EnemyController : MonoBehaviour , IIDamageable , IPooledObject
     {
         while (target != null)
         {
-            Debug.Log("test");
+            //Debug.Log("test");
             NavMeshHit hit;
             if (NavMesh.SamplePosition(Vector3.zero, out hit, 50.0f, NavMesh.AllAreas))
             {
@@ -200,12 +200,14 @@ public class EnemyController : MonoBehaviour , IIDamageable , IPooledObject
     {
         spawnObject = objectPool.SpawnObjectSequentially("DamagePopup", this.transform.position, transform.rotation);
         DamagePopup damagePopup = spawnObject.GetComponent<DamagePopup>();
-        damagePopup.Setup(finalDamageTake);
         spawnObject.SetActive(true);
+        damagePopup.Setup(finalDamageTake);
+        //spawnObject.SetActive(true);
     }
 
     void Dead()
     {
+        if (isDead) { return; }
         isDead = true;
         gameHandler.EnemyDeadListener?.Invoke();
         spawnObject = objectPool.SpawnObject("ExpGem", this.transform.position, this.transform.rotation);
@@ -216,20 +218,22 @@ public class EnemyController : MonoBehaviour , IIDamageable , IPooledObject
         objectPool.ReturnObjectToPool(poolType, this.gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-              
-    }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<IIDamageable>() != null)
         {
-            //GameObject attackTarget1 = other.gameObject;
             IIDamageable attackTarget = other.GetComponent<IIDamageable>();
-            Attack(attackTarget);
+            //GameObject attackTarget1 = other.gameObject;
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                Attack(attackTarget);
+            }
+                        
         }
     }
+
+
 
     void Attack(IIDamageable target)
     {

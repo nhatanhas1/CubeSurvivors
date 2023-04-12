@@ -10,8 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5883444367767946322}
   - component: {fileID: 3137315341473101631}
+  - component: {fileID: 7859370655554852027}
+  - component: {fileID: 3872420426918417321}
+  - component: {fileID: 153164616493491867}
   - component: {fileID: 6039620649525508796}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: BreakableObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,10 +28,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743283937942849996}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.03, y: -5.250001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2363278932066790933}
   - {fileID: 4514942575196591263}
@@ -51,6 +54,69 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!23 &7859370655554852027
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743283937942849996}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f5104da7f637bb14f9429d5b6f77f736, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &3872420426918417321
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743283937942849996}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &153164616493491867
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743283937942849996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6039620649525508796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1353f08749b614b88e1422b0b090af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPoint: 10
+  currentHitPoint: 0
+  isDead: 0
 --- !u!1 &2475111955192364688
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4514942575196591263}
   - component: {fileID: 4591714090241021562}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: TX Props Pot A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2475111955192364688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -159,7 +228,7 @@ GameObject:
   - component: {fileID: 4034380971987646924}
   - component: {fileID: 1994539523660798850}
   - component: {fileID: 7044079256254419051}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +309,7 @@ BoxCollider:
   m_GameObject: {fileID: 6481992777696989240}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

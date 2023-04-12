@@ -7,6 +7,9 @@ using Random = UnityEngine.Random;
 
 public class LevelController : MonoBehaviour
 {
+    Timer timer;
+    GameHandler gameHandler;
+
     ObjectPool objectPool;
     
     GameObject spawnObject;
@@ -31,8 +34,14 @@ public class LevelController : MonoBehaviour
 
     int corountine;
 
+    private void Awake()
+    {
+        timer = FindObjectOfType<Timer>();
+    }
+
     void Start()
     {
+        gameHandler = GameHandler.Instance;
         enemyDeadCount = 0;
         spawnTime = 0;
         spawnDelay = 2;
@@ -43,6 +52,7 @@ public class LevelController : MonoBehaviour
 
         corountine = 0;
         //StartCoroutine(SpawnEnemyFromLocation(0));
+        StartCoroutine(CheckTimer());
     }
 
     // Update is called once per frame
@@ -51,7 +61,22 @@ public class LevelController : MonoBehaviour
 
     }
 
+    IEnumerator CheckTimer()
+    {
+        while (!playerController.isDead)
+        {
+            //Debug.Log("Call check time");
+            float tmp = 1;
+            if(timer.minute >= tmp)
+            {
+                tmp = timer.minute + 1;
+                gameHandler.SpawnBreakableObject();
+            }
+            yield return new WaitForSeconds(1);
+        }
 
+        
+    }
 
     //Corutine Timer
     //Giu lai tham khao

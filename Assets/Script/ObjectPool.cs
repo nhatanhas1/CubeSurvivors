@@ -53,9 +53,11 @@ public class ObjectPool : MonoBehaviour
             {
                 //Instantiate(pool.prefabInPool).SetActive(false);
 
+                pool.prefabInPool.SetActive(false);
+
                 GameObject obj = Instantiate(pool.prefabInPool);
                 obj.transform.SetParent(this.transform);
-                obj.SetActive(false);
+                //obj.SetActive(false);
                 objectPool.Enqueue(obj);
 
             }
@@ -75,7 +77,8 @@ public class ObjectPool : MonoBehaviour
         }
         //Debug.Log("Dictionary: " + poolDictionary[poolType].Count);
         GameObject objectToSpawn = poolDictionary[poolType].Dequeue();
-        
+        //objectToSpawn.SetActive(false);
+
         objectToSpawn.transform.position = spawnPosition;
         objectToSpawn.transform.rotation = rotation;
 

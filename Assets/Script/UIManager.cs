@@ -124,10 +124,7 @@ public class UIManager : MonoBehaviour
         //Debug.Log("Start Button Clicked");
         Loader.Load(sceneIndex);
     }
-    //public void DamagePopupUI(Transform spawnLocation)
-    //{
 
-    //}
 
     public void TurnOnSubMenu()
     {
@@ -153,11 +150,13 @@ public class UIManager : MonoBehaviour
 
     public void StartScene()
     {
+        Debug.Log("asd");
         SceneManager.LoadScene(0);
     }
 
     public void ResummeButton()
     {
+        Debug.Log("Test");
         gameHandler.Resume();
         subMenuPanel.SetActive(false);
     }
