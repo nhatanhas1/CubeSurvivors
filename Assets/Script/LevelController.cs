@@ -63,16 +63,24 @@ public class LevelController : MonoBehaviour
 
     IEnumerator CheckTimer()
     {
+        float tmp = 10;
         while (!playerController.isDead)
         {
-            //Debug.Log("Call check time");
-            float tmp = 1;
-            if(timer.minute >= tmp)
-            {
-                tmp = timer.minute + 1;
-                gameHandler.SpawnBreakableObject();
-            }
-            yield return new WaitForSeconds(1);
+            //Debug.Log("Call check time");            
+            //if(timer.minute >= tmp)
+            //{
+            //    tmp = timer.minute + 1;
+            //    gameHandler.SpawnBreakableObject();
+            //}
+
+            //if (timer.second >= tmp)
+            //{
+            //    tmp = timer.minute + 1;
+            //    gameHandler.SpawnBreakableObject();
+            //}
+
+            gameHandler.SpawnBreakableObject();
+            yield return new WaitForSeconds(tmp);
         }
 
         
@@ -670,7 +678,7 @@ public class LevelController : MonoBehaviour
     }
 
 
-    public void CountEnemyDead()
+    public void CountEnemyDead(EnemyController enemy)
     {
         enemyDeadCount++;
         UIManager.Instance.UpdateEnemyDeadCountUI(enemyDeadCount);

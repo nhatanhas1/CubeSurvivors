@@ -25,7 +25,7 @@ public class GameHandler : MonoBehaviour
     //public UnityEvent UpgradeButtonListener;
     //public UnityEvent PlayerUpgradeListener;
 
-    public UnityEvent EnemyDeadListener;
+    public UnityEvent<EnemyController> EnemyDeadListener;
     public UnityEvent PlayerDeadListener;
     
     bool gameIsPause;

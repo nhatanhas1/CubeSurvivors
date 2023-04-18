@@ -7,6 +7,7 @@ using UnityEngine.Pool;
 
 public class BreakableObject : MonoBehaviour , IIDamageable
 {
+    [SerializeField] GameObject breakaboutObject;
     GameHandler gameHandler;
     ObjectPool objectPool;
 
@@ -62,18 +63,21 @@ public class BreakableObject : MonoBehaviour , IIDamageable
         isDead = true;
         GameObject spawnObject = objectPool.SpawnObject("ExpGem", this.transform.position, this.transform.rotation);
         spawnObject.SetActive(true);
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+        breakaboutObject.SetActive(false);
+        
         
     }
 
     void RespawnObject()
     {
-        Debug.Log("Event Call");
-        if (gameObject.activeSelf) { return; }
+        //Debug.Log("Event Call");
+        if (breakaboutObject.activeSelf) { return; }
         float dist = Vector3.Distance(playerController.transform.position, transform.position);
         if (dist > 20)
         {
-            Debug.Log("BreakableObject respawn object");
+            //Debug.Log("BreakableObject respawn object");
+            breakaboutObject.SetActive(true);
             gameObject.SetActive(true);
         }
        

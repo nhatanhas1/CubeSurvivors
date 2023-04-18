@@ -33,14 +33,19 @@ public class PickUpRadius : PlayerUpgradePower
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<ExpGem>() != null)
+        //if (other.GetComponent<ExpGem>() != null)
+        //{
+        //    if(playerController == null) { return; }
+        //    //ExpGem expGem = other.GetComponent<ExpGem>();
+        //    //playerController.playerExp += other.GetComponent<ExpGem>().exp;
+        //    playerController.GetExp(other.GetComponent<ExpGem>().exp);
+        //    ObjectPool.Instance.ReturnObjectToPool("ExpGem", other.gameObject);
+        //    //other.gameObject.SetActive(false);
+        //}
+
+        if(other.GetComponent<IConsumable>() != null)
         {
-            if(playerController == null) { return; }
-            //ExpGem expGem = other.GetComponent<ExpGem>();
-            //playerController.playerExp += other.GetComponent<ExpGem>().exp;
-            playerController.GetExp(other.GetComponent<ExpGem>().exp);
-            ObjectPool.Instance.ReturnObjectToPool("ExpGem", other.gameObject);
-            //other.gameObject.SetActive(false);
+            other.GetComponent<IConsumable>().UseItem(playerController);
         }
     }
 
@@ -51,17 +56,6 @@ public class PickUpRadius : PlayerUpgradePower
         playerController.pickupRadius = pickupCollider.radius;
     }
 
-   
-
-    //public void AddToUpgradeButton()
-    //{
-    //    upgradeButtonManager = FindObjectOfType<UpgradeManager>();
-    //    if (weaponCureentLv <= maxUpgradeLevel)
-    //    {
-    //        upgradeButtonManager.currentUpgradePartList.Add(PlayerController.UpgradePart.PickUp);
-    //    }
-
-    //}
 
     public override void Upgrade()
     {

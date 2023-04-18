@@ -209,12 +209,12 @@ public class EnemyController : MonoBehaviour , IIDamageable , IPooledObject
     {
         if (isDead) { return; }
         isDead = true;
-        gameHandler.EnemyDeadListener?.Invoke();
-        spawnObject = objectPool.SpawnObject("ExpGem", this.transform.position, this.transform.rotation);
-        if(spawnObject != null)
-        {
-            spawnObject.gameObject.SetActive(true);
-        }
+        gameHandler.EnemyDeadListener?.Invoke(this);
+        //spawnObject = objectPool.SpawnObject("ExpGem", this.transform.position, this.transform.rotation);
+        //if(spawnObject != null)
+        //{
+        //    spawnObject.gameObject.SetActive(true);
+        //}
         objectPool.ReturnObjectToPool(poolType, this.gameObject);
     }
 

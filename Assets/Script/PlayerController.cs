@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
-using static PlayerController;
+
 
 public class PlayerController : MonoBehaviour, IIDamageable
 {
